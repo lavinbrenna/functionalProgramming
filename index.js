@@ -24,7 +24,7 @@ function makeUrl(string){
   }
   return urlString.join('');
 }
-//recursive
+//recursive ~ does not work properly
 const recurseReverse = (string) => {
   if (string === " ") {
     return "%20";
@@ -83,6 +83,42 @@ function compressedString(string){
         }
       }
     }
-    console.log(newArray);
+    console.log(newArray.join(''));
 }
 compressedString(newString)
+
+
+
+
+// Question #4: Checking for Uniqueness
+// Write an algorithm that determines whether all the elements in a string are unique. You may not convert the string into an array or use array methods to solve this problem. The algorithm should return a boolean.
+
+// Example
+// Input: "hello"
+
+// Output: false
+
+// Input: "copyright"
+
+// Output: true
+let input1="hello";
+let input2="copyright";
+function isUnique(string){
+  let array = [];
+for(let i=0; i< string.length; i ++){
+  if(string[i] === string[i+1]){
+    array.push('false');
+  }
+  else{
+    array.push('true');
+  }
+}
+if(array.includes('false')){
+  return false;
+}
+else{
+  return true;
+}
+}
+isUnique(input1)
+isUnique(input2)
