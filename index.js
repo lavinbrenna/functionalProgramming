@@ -24,6 +24,12 @@ function makeUrl(string){
   }
   return urlString.join('');
 }
+
+//even shorter !!
+let string = "Jasmine Ann Jones";
+function makeUrl(string){
+  return string.split(" ").join("%20");
+}
 //recursive ~ does not work properly
 const recurseReverse = (string) => {
   if (string === " ") {
@@ -42,19 +48,21 @@ const recurseReverse = (string) => {
 let nums = [7, 9, "hi", 12, "hi", 7, 53];
 
 function setArray(arr){
-let newArray = [...new Set(arr)];
-console.log(newArray);
+  let newArray = [...new Set(arr)];
+  return newArray;
 }
 
 //set automatically stores unique values
 
+
+function 
 //with filter
 
 function filterArray(arr){
   let newArray = arr.filter((element, index)=> {
-    return arr.indexOf(element) === index;
-});
-  console.log(newArray);
+  return arr.indexOf(element) === index;
+  });
+  return newArray;
 }
 
 // Question #3: Compressing Strings
@@ -73,19 +81,17 @@ function compressedString(string){
     if(stringArray[i] === stringArray[i+1]){
     counter += 1;
     }
+    else if(counter >= 2){
+      newArray.push(counter + stringArray[i]);
+      counter = 1;
+    }
     else{
-      if(counter >= 2){
-          newArray.push(counter + stringArray[i]);
-          counter = 1;
-        }
-        else{
-          newArray.push(stringArray[i]);
-        }
+        newArray.push(stringArray[i]);
       }
     }
     console.log(newArray.join(''));
 }
-compressedString(newString)
+compressedString(newString);
 
 
 
@@ -103,25 +109,22 @@ compressedString(newString)
 // Output: true
 let input1="hello";
 let input2="copyright";
+let input3 ="circle";
+let input4 = "pipeline";
+
 function isUnique(string){
-  let array = [];
-for(let i=0; i< string.length; i ++){
-  if(string[i] === string[i+1]){
-    array.push('false');
+  let unique = true;
+  for(let i=0; i< string.length; i ++){
+    for(let j= i + 1;string.length; j++){
+      if(string[j] === string[i]){
+        unique = false;
+        return unique;
+      }
+    }
   }
-  else{
-    array.push('true');
-  }
+  console.log(unique);
+  return unique;
 }
-if(array.includes('false')){
-  return false;
-}
-else{
-  return true;
-}
-}
-isUnique(input1)
-isUnique(input2)
 
 // Question #5: Array Sorting
 // Write an algorithm that sorts an array without using the sort() method. There are many different sorting algorithms - take the time to read about the following:
@@ -141,12 +144,12 @@ isUnique(input2)
 
 let nums = [9,2,7,12];
 function selectionSort(array) {
-  for (let currentIndex = 0; currentIndex < array.length; currentIndex++) {
-    for (let indexToCompare = currentIndex+1; indexToCompare < array.length; indexToCompare++) {
-      if (array[currentIndex] > array[indexToCompare]) {
-        const higherValue = array[currentIndex];
-        array[currentIndex] = array[indexToCompare];
-        array[indexToCompare] = higherValue;
+  for (let i= 0; i < array.length; i++) {
+    for (let j = i+1; j < array.length; j++) {
+      if (array[i] > array[j]) {
+        const higherValue = array[i];
+        array[i] = array[j];
+        array[j] = higherValue;
       }
     }
   }
