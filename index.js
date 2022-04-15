@@ -13,7 +13,7 @@ let string = "Jasmine Ann Jones";
 function makeUrl(string){
   let stringToReplace = string.split('');
   let urlString = [];
-  for(let i=0; i < stringToReplace.length; i ++){
+  for(let i=0; i < stringToReplace.length; i++){
     if(stringToReplace[i]!= ' ')
     {
       urlString.push(stringToReplace[i]);
@@ -46,6 +46,8 @@ let newArray = [...new Set(arr)];
 console.log(newArray);
 }
 
+//set automatically stores unique values
+
 //with filter
 
 function filterArray(arr){
@@ -54,3 +56,33 @@ function filterArray(arr){
 });
   console.log(newArray);
 }
+
+// Question #3: Compressing Strings
+// Write an algorithm that takes a string with repeated characters and compresses them, using a number to show how many times the repeated character has been compressed. For instance, aaa would be written as 3a. Solve the problem with and without recursion.
+
+// Example
+// Input: "aaabccdddda"
+
+// Output: "3ab2c4da"
+let newString = "aaabccdddda";
+function compressedString(string){
+  let stringArray = string.split('');
+  let newArray = [];
+  let counter = 1;
+  for(let i=0; i < stringArray.length; i ++){
+    if(stringArray[i] === stringArray[i+1]){
+    counter += 1;
+    }
+    else{
+      if(counter >= 2){
+          newArray.push(counter + stringArray[i]);
+          counter = 1;
+        }
+        else{
+          newArray.push(stringArray[i]);
+        }
+      }
+    }
+    console.log(newArray);
+}
+compressedString(newString)
