@@ -26,7 +26,7 @@ function makeUrl(string){
 }
 
 //even shorter !!
-let string = "Jasmine Ann Jones";
+let urlString = "Jasmine Ann Jones";
 function makeUrl(string){
   return string.split(" ").join("%20");
 }
@@ -45,17 +45,29 @@ const recurseReverse = (string) => {
 
 // Example
 // Output: [7, 9, "hi", 12, 53]
-let nums = [7, 9, "hi", 12, "hi", 7, 53];
+
 
 function setArray(arr){
   let newArray = [...new Set(arr)];
   return newArray;
 }
-
+// let nums = [7, 9, "hi", 12, "hi", 7, 53];
+// function setArray(arr){
+//   let newArray = [];
+//   for(let i = 0; i < arr.length; i++)
+//   {for(let j = 0;j < arr.length; j++)
+//     {
+//       if(arr[j] != arr[i]){
+//         newArray.push(arr[j]);
+//       }
+//     }
+//   }
+//   console.log(newArray);
+// }
 //set automatically stores unique values
 
 
-function 
+
 //with filter
 
 function filterArray(arr){
@@ -93,6 +105,25 @@ function compressedString(string){
 }
 compressedString(newString);
 
+
+function compressedString(string){
+  let newArray = [];
+  let counter = 1;
+  for(let i=0; i < string.length; i ++){
+    if(string[i] === string[i+1]){
+    counter += 1;
+    }
+    else if(counter >= 2){
+      newArray.push(counter + string[i]);
+      counter = 1;
+    }
+    else{
+        newArray.push(string[i]);
+      }
+    }
+    console.log(newArray.join(''));
+}
+compressedString(newString);
 
 
 

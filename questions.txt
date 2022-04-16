@@ -24,6 +24,30 @@ Input: "aaabccdddda"
 
 Output: "3ab2c4da"
 
+
+solution: 
+
+let newString = "aaabccdddda";
+function compressedString(string){
+  let stringArray = string.split('');
+  let newArray = [];
+  let counter = 1;
+  for(let i=0; i < stringArray.length; i ++){
+    if(stringArray[i] === stringArray[i+1]){
+    counter += 1;
+    }
+    else if(counter >= 2){
+      newArray.push(counter + stringArray[i]);
+      counter = 1;
+    }
+    else{
+        newArray.push(stringArray[i]);
+      }
+    }
+    console.log(newArray.join(''));
+}
+compressedString(newString);
+
 Question #4: Checking for Uniqueness
 Write an algorithm that determines whether all the elements in a string are unique. You may not convert the string into an array or use array methods to solve this problem. The algorithm should return a boolean.
 
